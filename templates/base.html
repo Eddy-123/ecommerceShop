@@ -12,6 +12,11 @@
         {% else %}
             <a href="{% url 'signup' %}">S'inscrire</a> | <a href="{% url 'login' %}">Se connecter</a>
         {% endif %}
+        {% if user.cart %}
+            <p>
+                <a href="{% url 'cart' %}">Voir le panier ({{ user.cart.orders.count }})</a>
+            </p>
+        {% endif %}
         {% block content %}
         
         {% endblock content %}
